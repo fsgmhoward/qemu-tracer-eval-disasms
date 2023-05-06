@@ -3,18 +3,18 @@ FROM pangine/disasms-base
 # Install disassembler required packages
 USER root
 WORKDIR /root/
-RUN sed -i 's/archive.ubuntu.com/mirror.0x.sg\/ubuntu/g' /etc/apt/sources.list \
- && sed -i 's/security.ubuntu.com/mirror.0x.sg\/ubuntu/g' /etc/apt/sources.list
+RUN sed -i 's/archive.ubuntu.com/mirror.sg.gs\/ubuntu/g' /etc/apt/sources.list \
+ && sed -i 's/security.ubuntu.com/mirror.sg.gs\/ubuntu/g' /etc/apt/sources.list
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
-    default-jdk \
+    openjdk-17-jdk-headless \
     unzip
 
 USER ${USER}
 WORKDIR ${USER_HOME}
 
 # Install Ghidra
-RUN wget --progress=bar:force:noscroll https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_9.1.2_build/ghidra_9.1.2_PUBLIC_20200212.zip && \
-    unzip ghidra_9.1.2_PUBLIC_20200212.zip
+RUN wget --progress=bar:force:noscroll https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.2.3_build/ghidra_10.2.3_PUBLIC_20230208.zip && \
+    unzip ghidra_10.2.3_PUBLIC_20230208.zip
 
 # Install this package
 ENV GO111MODULE=off
@@ -27,5 +27,5 @@ RUN mkdir -p /home/ubuntu/go/src/zombiezen.com/go/capnproto2 && \
     git clone https://github.com/capnproto/go-capnproto2.git . && \
     git checkout v2.18.0 && \  
     go get github.com/pangine/disasm-eval-disasms/... && \ 
-    echo "${USER_HOME}/ghidra_9.1.2_PUBLIC/support/analyzeHeadless" > ${USER_HOME}/go/src/github.com/pangine/pangineDSM-import/ghidraScript/headlessLoc.txt && \
-    echo "[2020-11-12]"
+    echo "${USER_HOME}/ghidra_10.2.3_PUBLIC/support/analyzeHeadless" > ${USER_HOME}/go/src/github.com/pangine/pangineDSM-import/ghidraScript/headlessLoc.txt && \
+    echo "[2023-03-28]"

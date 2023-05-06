@@ -3,7 +3,7 @@ FROM pangine/disasms-base
 # Install disassembler required packages
 USER root
 WORKDIR /root/
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
     curl
 
 USER ${USER}
