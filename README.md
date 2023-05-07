@@ -2,10 +2,12 @@
 The extractors and capnp encoders that extract and output disassemblers' results into a capnp file, formatted using [pangineDSM-import/capnp-rst](https://github.com/pangine/pangineDSM-import/tree/main/capnp-rst)
 
 Presently support:
+ - Ghidra (v9.1.2 and v10.2.3)
+ - Radare2 (v4.4.0 and v5.8.4)
+
+These are outdated and might not be able to be built with the dockerfiles:
  - BAP
  - ddisasm
- - Ghidra
- - Radare2
  - ROSE
 
 The data needs to be given in the format of the output of [disasm-eval-sources](https://github.com/pangine/disasm-eval-sources).
@@ -13,15 +15,14 @@ The data needs to be given in the format of the output of [disasm-eval-sources](
 It is highly recommend to use docker images for execution.
 
 ------------------------------
-You need to install the docker image [llvmmc-resolver](https://github.com/pangine/llvmmc-resolver) before running this.
+You need to install the docker image [llvmmc-resolver](https://github.com/fsgmhoward/qemu-tracer-llvmmc-resolver) before running this.
 To install the docker images:
 ```bash
 docker build -t pangine/disasms-base -f dockerfiles/Dockerfile.disasms-base .
 docker build -t pangine/ghidra -f dockerfiles/Dockerfile.ghidra .
-docker build -t pangine/bap -f dockerfiles/Dockerfile.bap .
-docker build -t pangine/ddisasm -f dockerfiles/Dockerfile.ddisasm .
+docker build -t pangine/ghidra -f dockerfiles/Dockerfile.ghidra-10.2.3 .
 docker build -t pangine/r2 -f dockerfiles/Dockerfile.r2 .
-docker build -t pangine/rose -f dockerfiles/Dockerfile.rose .
+docker build -t pangine/r2 -f dockerfiles/Dockerfile.r2-5.8.4 .
 ```
 
 ------------------------------
