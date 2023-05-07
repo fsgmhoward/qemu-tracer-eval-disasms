@@ -19,10 +19,10 @@ You need to install the docker image [llvmmc-resolver](https://github.com/fsgmho
 To install the docker images:
 ```bash
 docker build -t pangine/disasms-base -f dockerfiles/Dockerfile.disasms-base .
-docker build -t pangine/ghidra -f dockerfiles/Dockerfile.ghidra .
-docker build -t pangine/ghidra -f dockerfiles/Dockerfile.ghidra-10.2.3 .
-docker build -t pangine/r2 -f dockerfiles/Dockerfile.r2 .
-docker build -t pangine/r2 -f dockerfiles/Dockerfile.r2-5.8.4 .
+docker build -t pangine/ghidra-9.1.2 -f dockerfiles/Dockerfile.ghidra .
+docker build -t pangine/ghidra-10.2.3 -f dockerfiles/Dockerfile.ghidra-10.2.3 .
+docker build -t pangine/r2-4.4.0 -f dockerfiles/Dockerfile.r2 .
+docker build -t pangine/r2-5.8.4 -f dockerfiles/Dockerfile.r2-5.8.4 .
 ```
 
 ------------------------------
